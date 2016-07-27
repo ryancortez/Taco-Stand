@@ -65,8 +65,35 @@ class TacoListTableViewController: UITableViewController, AddNewTacoTableViewCon
         }.resume()
     }
     
+    // MARK: - POST Data
+    
     // MARK: - AddNewTacoTableViewController Delgate 
     func tacoHasBeenAdded(newTaco newTaco: Taco) {
+        let postingURLString = "https://taco-stand.herokuapp.com/api/tacos/"
+        guard let url = NSURL(string: postingURLString) else {
+            print("Did not find valid url using string: (\(postingURLString))"); return
+        }
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameters = [ "taco": [ "name": newTaco.name, "price": newTaco.price, "photo_url": newTaco.imageURL]]
+        do {
+            try NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
+        }
+        catch  {
+            print("Could not serialize JSON from request")
+        }
+        
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
+        let session = NSURLSession.sharedSession()
+        session.dataTaskWithRequest(request) { (data :NSData?, response :NSURLResponse?, error: NSError?) in
+            
+            print("finished")
+            
+            }.resume()
+        
+        
         tacos.append(newTaco)
         self.tableView.reloadData()
     }
