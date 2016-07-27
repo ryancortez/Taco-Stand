@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		943980E01D4810EC00DFD00F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943980DF1D4810EC00DFD00F /* AppDelegate.swift */; };
-		943980E21D4810EC00DFD00F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943980E11D4810EC00DFD00F /* ViewController.swift */; };
+		943980E21D4810EC00DFD00F /* TacoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943980E11D4810EC00DFD00F /* TacoListViewController.swift */; };
 		943980E51D4810EC00DFD00F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943980E31D4810EC00DFD00F /* Main.storyboard */; };
 		943980E71D4810EC00DFD00F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943980E61D4810EC00DFD00F /* Assets.xcassets */; };
 		943980EA1D4810EC00DFD00F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943980E81D4810EC00DFD00F /* LaunchScreen.storyboard */; };
+		943980F61D4811F000DFD00F /* Taco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943980F51D4811F000DFD00F /* Taco.swift */; };
+		943980F81D48137D00DFD00F /* TacoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943980F71D48137D00DFD00F /* TacoTableViewCell.swift */; };
+		9475FBB81D4829060033A11D /* TacoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9475FBB71D4829060033A11D /* TacoDetailTableViewController.swift */; };
+		9475FBC01D4863360033A11D /* AddNewTacoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9475FBBF1D4863360033A11D /* AddNewTacoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		943980DC1D4810EC00DFD00F /* Taco Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taco Stand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		943980DF1D4810EC00DFD00F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		943980E11D4810EC00DFD00F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		943980E11D4810EC00DFD00F /* TacoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TacoListViewController.swift; sourceTree = "<group>"; };
 		943980E41D4810EC00DFD00F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		943980E61D4810EC00DFD00F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		943980E91D4810EC00DFD00F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		943980EB1D4810EC00DFD00F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		943980F51D4811F000DFD00F /* Taco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taco.swift; sourceTree = "<group>"; };
+		943980F71D48137D00DFD00F /* TacoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TacoTableViewCell.swift; sourceTree = "<group>"; };
+		9475FBB71D4829060033A11D /* TacoDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TacoDetailTableViewController.swift; sourceTree = "<group>"; };
+		9475FBBF1D4863360033A11D /* AddNewTacoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTacoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,50 @@
 		943980DE1D4810EC00DFD00F /* Taco Stand */ = {
 			isa = PBXGroup;
 			children = (
+				943980F11D4811A000DFD00F /* Model */,
+				943980F31D4811A200DFD00F /* Views */,
+				943980F21D4811A200DFD00F /* Controllers */,
+			);
+			path = "Taco Stand";
+			sourceTree = "<group>";
+		};
+		943980F11D4811A000DFD00F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				943980F51D4811F000DFD00F /* Taco.swift */,
+				943980EB1D4810EC00DFD00F /* Info.plist */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		943980F21D4811A200DFD00F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				943980F41D4811A400DFD00F /* TableViewCells */,
 				943980DF1D4810EC00DFD00F /* AppDelegate.swift */,
-				943980E11D4810EC00DFD00F /* ViewController.swift */,
+				943980E11D4810EC00DFD00F /* TacoListViewController.swift */,
+				9475FBB71D4829060033A11D /* TacoDetailTableViewController.swift */,
+				9475FBBF1D4863360033A11D /* AddNewTacoTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		943980F31D4811A200DFD00F /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				943980E31D4810EC00DFD00F /* Main.storyboard */,
 				943980E61D4810EC00DFD00F /* Assets.xcassets */,
 				943980E81D4810EC00DFD00F /* LaunchScreen.storyboard */,
-				943980EB1D4810EC00DFD00F /* Info.plist */,
 			);
-			path = "Taco Stand";
+			name = Views;
+			sourceTree = "<group>";
+		};
+		943980F41D4811A400DFD00F /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				943980F71D48137D00DFD00F /* TacoTableViewCell.swift */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				943980E21D4810EC00DFD00F /* ViewController.swift in Sources */,
+				9475FBB81D4829060033A11D /* TacoDetailTableViewController.swift in Sources */,
+				9475FBC01D4863360033A11D /* AddNewTacoTableViewController.swift in Sources */,
+				943980F81D48137D00DFD00F /* TacoTableViewCell.swift in Sources */,
+				943980E21D4810EC00DFD00F /* TacoListViewController.swift in Sources */,
 				943980E01D4810EC00DFD00F /* AppDelegate.swift in Sources */,
+				943980F61D4811F000DFD00F /* Taco.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +336,7 @@
 				943980F01D4810EC00DFD00F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
