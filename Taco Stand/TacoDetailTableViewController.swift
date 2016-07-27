@@ -22,7 +22,7 @@ class TacoDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         name.text = taco.name
         price.text = "\(taco.price)"
-        largeImage.image = getImage(atURL: taco.imageURL)
+        largeImage.image = taco.image
     }
     
     // MARK: - Fetch Data

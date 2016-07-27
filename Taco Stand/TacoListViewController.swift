@@ -89,23 +89,28 @@ class TacoListTableViewController: UITableViewController, AddNewTacoTableViewCon
         }
         cell.tacoImageView.image = UIImage()
         cell.tacoLabel.text = tacos[indexPath.row].name
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         
-        dispatch_async(queue) { 
-            let photoURLString = self.tacos[indexPath.row].imageURL
-            guard let url = NSURL(string: photoURLString) else {
-                print("Did not find string with a valid URL")
-                return
-            }
-            guard let data = NSData(contentsOfURL: url) else {
-                print("Did not find data at URL(\(photoURLString))")
-                return
-            }
-            let image = UIImage(data: data)
-            dispatch_async(dispatch_get_main_queue()) {
-                cell.tacoImageView.image = image
+        if (tacos[indexPath.row].image != nil) {
+            cell.tacoImageView.image = tacos[indexPath.row].image
+        } else {
+            let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+            dispatch_async(queue) {
+                let photoURLString = self.tacos[indexPath.row].imageURL
+                guard let url = NSURL(string: photoURLString) else {
+                    print("Did not find string with a valid URL")
+                    return
+                }
+                guard let data = NSData(contentsOfURL: url) else {
+                    print("Did not find data at URL(\(photoURLString))")
+                    return
+                }
+                let image = UIImage(data: data)
+                dispatch_async(dispatch_get_main_queue()) {
+                    cell.tacoImageView.image = image
+                }
             }
         }
+        
         return cell
     }
     
