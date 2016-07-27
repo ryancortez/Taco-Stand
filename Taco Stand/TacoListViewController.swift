@@ -109,8 +109,14 @@ class TacoListTableViewController: UITableViewController, AddNewTacoTableViewCon
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         self.taco = tacos[indexPath.row]
+        
+        return indexPath
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
     }
     
     // MARK: - Segues
@@ -120,6 +126,7 @@ class TacoListTableViewController: UITableViewController, AddNewTacoTableViewCon
             guard let destinationViewController = segue.destinationViewController as? TacoDetailTableViewController else {
                 print("destinationViewController was not a TacoDetailTableViewController"); return
             }
+            
             destinationViewController.taco = self.taco
         }
         if (segue.identifier == "tacoListToAddTaco") {
